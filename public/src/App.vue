@@ -11,7 +11,7 @@
           <div class="oneGroup half">
             <div class="picGroup">
               <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[0]}')` }">
-                <h3>LINEN BLAZER</h3>
+                <h3 data-shadow="LINEN BLAZER">LINEN BLAZER</h3>
                 <h4>01</h4>
                 <h5>Men's outfit</h5>
                 <div class="stripe"></div>
@@ -21,7 +21,7 @@
           <div class="twoGroup half">
             <div class="picGroup">
               <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[1]}')` }">
-                <h3>FREELIFT</h3>
+                <h3 data-shadow="FREELIFT">FREELIFT</h3>
                 <h4>02</h4>
                 <h5>Men's basics</h5>
               </div>
@@ -35,7 +35,7 @@
           <div class="threeGroup">
             <div class="picGroup">
               <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[2]}')` }">
-                <h3>SUPER SKINNY</h3>
+                <h3 data-shadow="SUPER SKINNY">SUPER SKINNY</h3>
                 <h4>03</h4>
                 <h5>Men's pattern shirts</h5>
               </div>
@@ -44,7 +44,7 @@
           <div class="fiveGroup">
             <div class="picGroup">
               <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[4]}')` }">
-                <h3>SWEETSHIRTS</h3>
+                <h3 data-shadow="SWEETSHIRTS">SWEETSHIRTS</h3>
                 <h4>05</h4>
                 <h5>Men's jacket</h5>
               </div>
@@ -54,7 +54,7 @@
         <div class="fourGroup half">
           <div class="picGroup">
             <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[3]}')` }">
-              <h3>DENIM</h3>
+              <h3 data-shadow="DENIM">DENIM</h3>
               <h4>04</h4>
               <h5>Men's cadual</h5>
             </div>
@@ -67,7 +67,7 @@
         <div class="sixGroup half">
           <div class="picGroup">
             <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[5]}')` }">
-              <h3>VINTAGE DENIM</h3>
+              <h3 data-shadow="VINTAGE DENIM">VINTAGE DENIM</h3>
               <h4>06</h4>
               <h5>Men's classic</h5>
             </div>
@@ -76,7 +76,7 @@
         <div class="sevenGroup half">
           <div class="picGroup">
             <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[6]}')` }">
-              <h3>EDITION</h3>
+              <h3 data-shadow="EDITION">EDITION</h3>
               <h4>07</h4>
               <h5>Men's shirts</h5>
             </div>
@@ -157,6 +157,28 @@ export default {
     .pic{
       background-size: cover;
       background-position: center;
+      h3{
+        font-size: 40px;
+        position: relative;
+        &:after{
+          content: attr(data-shadow);
+          position: absolute;
+          left: 0;
+          top: -20px;
+          background: linear-gradient(rgba(0,0,0,0.1),transparent);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        &:before{
+          content: attr(data-shadow);
+          position: absolute;
+          left: 0;
+          top: -10px;
+          background: linear-gradient(rgba(0,0,0,0.3),transparent);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .oneTwoGroup{
       padding-top: 75%;
@@ -164,7 +186,10 @@ export default {
         .picGroup{
           padding-top: 100%;
           .pic{
-            
+            h3{
+              position: absolute;
+              top: -20px;
+            }
           }
         }
       }
