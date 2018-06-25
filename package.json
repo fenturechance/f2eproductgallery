@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "firebase-admin": "^5.12.1",
+    "firebase-functions": "^1.1.0",
+    "firebase-tools": "^3.19.0"
+  },
+  "name": "f2eproductgallery",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
