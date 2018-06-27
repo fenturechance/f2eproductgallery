@@ -19,10 +19,10 @@
             </div>
             </div>
           <div class="twoGroup half">
+            <h4>02</h4>
             <div class="picGroup">
               <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[1]}')` }">
                 <h3 data-shadow="FREELIFT">FREELIFT</h3>
-                <h4>02</h4>
                 <h5>Men's basics</h5>
               </div>
             </div>
@@ -42,11 +42,12 @@
             </div>
           </div>
           <div class="fiveGroup">
+            <h3 data-shadow="SWEETSHIRTS">SWEETSHIRTS</h3>
             <div class="picGroup">
               <div class="pic fixGroup" :style="{ backgroundImage : `url('${picList[4]}')` }">
-                <h3 data-shadow="SWEETSHIRTS">SWEETSHIRTS</h3>
                 <h4>05</h4>
                 <h5>Men's jacket</h5>
+                <div class="stripe"></div>
               </div>
             </div>
           </div>
@@ -57,6 +58,7 @@
               <h3 data-shadow="DENIM">DENIM</h3>
               <h4>04</h4>
               <h5>Men's cadual</h5>
+              <div class="stripe"></div>
             </div>
           </div>
         </div>
@@ -154,30 +156,63 @@ export default {
     .picGroup{
       position: relative;
     }
+    h4{
+      font-size: 45px;
+    }
+    h3{
+      font-size: 40px;
+      position: relative;
+      &:after{
+        content: attr(data-shadow);
+        position: absolute;
+        left: 0;
+        top: -20px;
+        background: linear-gradient(rgba(0,0,0,0.1),transparent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      &:before{
+        content: attr(data-shadow);
+        position: absolute;
+        left: 0;
+        top: -10px;
+        background: linear-gradient(rgba(0,0,0,0.3),transparent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
     .pic{
       background-size: cover;
       background-position: center;
-      h3{
-        font-size: 40px;
-        position: relative;
-        &:after{
-          content: attr(data-shadow);
-          position: absolute;
-          left: 0;
-          top: -20px;
-          background: linear-gradient(rgba(0,0,0,0.1),transparent);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        &:before{
-          content: attr(data-shadow);
-          position: absolute;
-          left: 0;
-          top: -10px;
-          background: linear-gradient(rgba(0,0,0,0.3),transparent);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+      h5{
+        font-size: 20px;
+        font-style: italic;
+      }
+      &:before{
+        position: absolute;
+        content: '';
+        border: 15px solid #50E3C2;
+        box-sizing: border-box;
+      }
+      &:after{
+        position: absolute;
+        content: '';
+        background-color: #50E3C2;
+      }
+    }
+    .stripe{
+      position: absolute;
+      overflow: hidden;
+      &:after{
+        transform: rotate(30deg);
+        top: -100% ;
+        left: 10%;
+        width: 20px;
+        height: 200%;
+        background-color: #50E3C2;
+        box-shadow: 35px 0 0 #50E3C2,70px 0 0 #50E3C2,105px 0 0 #50E3C2,140px 0 0 #50E3C2,175px 0 0 #50E3C2;
+        position: absolute;
+        content: '';
       }
     }
     .oneTwoGroup{
@@ -190,11 +225,41 @@ export default {
               position: absolute;
               top: -20px;
             }
+            h4{
+              position: absolute;
+              bottom: -10%;
+            }
+            h5{
+              position: absolute;
+              right: -14%;
+              bottom: 7%;
+              transform: rotate(90deg);
+            }
+            .stripe{
+              bottom: -8%;
+              left: 13%;
+              width: 50%;
+              height: 25%;
+            }
+            &:before{
+              width: 50%;
+              height: 50%;
+              z-index: -1;
+              right: -10%;
+              top: -10%; 
+            }
           }
         }
       }
       .twoGroup{
         position: relative;
+        h4{
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 2;
+          line-height: .8;
+        }
         .picGroup{
           position: absolute;
           top: 20%;
@@ -202,6 +267,33 @@ export default {
           transform: translateX(-50%);
           width: 50%;
           padding-top: 50%;
+          .pic{
+            h3{
+              position: absolute;
+              right: -50%;
+              bottom: -33%;
+            }
+            h5{
+              position: absolute;
+              left: -5%;
+              top: -12%;
+            }
+            &:after{
+              z-index: -1;
+              width: 100%;
+              height: 100%;
+              right: -25%;
+              top: -30%;
+            }
+            &:before{
+              box-sizing: border-box;
+              z-index: -1;
+              width: 100%;
+              height: 100%;
+              right: -50%;
+              top: -60%;
+            }
+          }
         }
       }
     }
@@ -212,14 +304,71 @@ export default {
           padding: 25% 0 50% 0;
           .picGroup{
             padding-top: 50%;
+            .pic{
+              h3{
+                top: -20%;
+                left: 0;
+                position: absolute;
+              }
+              h5{
+                position: absolute;
+                bottom: -11%;
+                left: 5%;
+              }
+              h4{
+                position: absolute;
+                right: -17%;
+                bottom: -34%;
+              }
+              &:before{
+                right: -17%;
+                bottom: -30%;
+                z-index: -1;
+                width: 50%;
+                height: 100%;
+              }
+            }
           }
         }
         .fiveGroup{
           display: flex;
           justify-content: flex-end;
+          position: relative;
+          h3{
+            position: absolute;
+            left: 0;
+            top: 20%;
+            z-index: 2;
+          }
           .picGroup{
             width: 50%;
             padding-top: 50%;
+            .pic{
+              .stripe{
+                width: 100%;
+                height: 50%;
+                left: -50%;
+                top: -25%;
+              }
+              &:before{
+                width: 100%;
+                height: 50%;
+                z-index: -1;
+                left: -50%;
+                bottom: -25%;
+              }
+              h4{
+                left: -50%;
+                bottom: 10%;
+                position: absolute;
+                line-height: 0.8;
+              }
+              h5{
+                position: absolute;
+                right: -50%;
+                bottom: -10%;
+              }
+            }
           }
         }
       }
@@ -231,6 +380,37 @@ export default {
           position: absolute;
           width: 50%;
           padding-top: 100%;
+          .pic{
+            .stripe{
+              width: 100%;
+              height: 25%;
+              bottom: -12%;
+            }
+            h3{
+              position: absolute;
+              left: -33%;
+              top: 7%;
+              transform: rotate(-90deg)
+            }
+            h4{
+              position: absolute;
+              left: -23%;
+              bottom: 0;  
+            }
+            h5{
+              position: absolute;
+              transform: rotate(90deg);
+              right: -3%;
+              top: -15%;
+            }
+            &:before{
+              z-index: -1;
+              width: 100%;
+              height: 50%;
+              left: -34%;
+              top: -20%;
+            }
+          }
         }
       }
     }
@@ -241,6 +421,37 @@ export default {
         .picGroup{
           width: 100%;
           padding-top: 100%;
+          .pic{
+            h3{
+              position: absolute;
+              top: -10%;
+              right: 0;
+            }
+            h4{
+              position: absolute;
+              left: -12%;
+              bottom: 50%;
+            }
+            h5{
+              position: absolute;
+              bottom: -5%;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            &:before{
+              width: 100%;
+              height: 25%;
+              bottom: -10%;
+              z-index: -1;
+            }
+            &:after{
+              width: 50%;
+              height: 50%;
+              bottom: 0;
+              left: -12%;
+              z-index: -1;
+            }
+          }
         }
       }
       .sevenGroup{
@@ -249,6 +460,38 @@ export default {
         .picGroup{
           width: 50%;
           padding-top: 100%;
+          .pic{
+            h3{
+              transform: rotate(90deg);
+              position: absolute;
+              right: -40%;
+              top: 10%;
+            }
+            h4{
+              position: absolute;
+              left: 125%;
+              bottom: 0;
+              z-index: 2;
+            }
+            h5{
+              position: absolute;
+              bottom: 100%;
+            }
+            &:before{
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+              position: absolute;
+              left: 25%;
+              top: -10%;
+            }
+            &:after{
+              width: 50%;
+              height: 50%;
+              left: 100%;
+              bottom: 0;
+            }
+          }
         }
       }
     }
